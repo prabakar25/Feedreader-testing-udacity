@@ -22,9 +22,11 @@ RSS Feeds
 * are defined
 * all urls are defined
 * all names are defined
+
 The menu
 * should be hidden on load
 * toggles on click
+
 Initial Entries
 * entries are there
 * New Feed Selection

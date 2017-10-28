@@ -19,9 +19,9 @@ https://prabakar25.github.io/feedreadertesting/
 ##  Included Tests
 
 RSS Feeds
-* are defined
-* all urls are defined
-* all names are defined
+> are defined
+> all urls are defined
+> all names are defined
 
 The menu
 * should be hidden on load

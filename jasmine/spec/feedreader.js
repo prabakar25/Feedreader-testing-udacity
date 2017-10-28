@@ -32,10 +32,10 @@ $(function() {
          * and that the URL is not empty.
          */
           it('all urls are defined', function() {
-            for(var i in allFeeds) {
-            expect(allFeeds[i].url).toBeDefined();
-            expect(allFeeds[i].url.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feeds) {
+            expect(feeds.url).toBeDefined();
+            expect(feeds.url.length).not.toBe(0);
+            });
         });
 
         /* a test that loops through each feed
@@ -43,10 +43,10 @@ $(function() {
          * and that the name is not empty.
          */
          it('all names are defined', function() {
-            for(var i in allFeeds) {
-            expect(allFeeds[i].name).toBeDefined();
-            expect(allFeeds[i].name.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feeds) {
+            expect(feeds.name).toBeDefined();
+            expect(feeds.name.length).not.toBe(0);
+            });
         });
     });
 
@@ -68,16 +68,17 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('toggles on click' , function() {
-            expect($('body').hasClass('menu-hidden')).toBe(true);
-            $('.menu-icon-link').trigger('click');// triggers click event
+            $('.menu-icon-link').click();// triggers click event
             expect($('body').hasClass('menu-hidden')).toBe(false);
-            $('.menu-icon-link').trigger('click');// triggers click event
+            $('.menu-icon-link').click();// triggers click event
+            expect($('body').hasClass('menu-hidden')).toBe(true);
+            
         });
     });
 
     /* a new test suite named "Initial Entries" to check entries presence */
     describe('Initial Entries' , function() {
-        /* TODO: Write a test that ensures when the loadFeed
+        /* a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
@@ -88,25 +89,35 @@ $(function() {
         });
 
         it('entries are there' , function() {
-            expect($('.entry').length).not.toBe(0);
+            expect($('.feed .entry').length).not.toBe(0);
         });
     });
 
     /* a new test suite named "New Feed Selection" to witness the feed changes*/
     describe('New Feed Selection' , function() {
-        /* TODO: Write a test that ensures when a new feed is loaded
+        /* a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        var oldEntry;// variable to store old entry
+        var oldEntry, newEntry;// variable to store entry
         beforeEach(function(done) {
-            oldEntry = loadFeed(0 , done);
-            loadFeed(1 , done);
+            loadFeed(0 , function() {
+                oldEntry = $('.feed .entry').text();
+                console.log(oldEntry);
+            });
+            done();
+        });
 
+        beforeEach(function(done) {
+            loadFeed(1 , function() {
+                newEntry = $('.feed .entry').text();
+                console.log(newEntry);
+            });
+            done();
         });
 
         it('feed content changes', function() {
-            expect($('.feed')).not.toBe(oldEntry);
+            expect(newEntry).not.toBe(oldEntry);
         });
     });
 }());

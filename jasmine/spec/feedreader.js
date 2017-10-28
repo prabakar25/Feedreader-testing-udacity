@@ -104,17 +104,13 @@ $(function() {
             loadFeed(0 , function() {
                 oldEntry = $('.feed .entry').text();
                 console.log(oldEntry);
-            });
-            done();
-        });
-
-        beforeEach(function(done) {
             loadFeed(1 , function() {
                 newEntry = $('.feed .entry').text();
                 console.log(newEntry);
+                done();
+                });
             });
-            done();
-        });
+        });    
 
         it('feed content changes', function() {
             expect(newEntry).not.toBe(oldEntry);

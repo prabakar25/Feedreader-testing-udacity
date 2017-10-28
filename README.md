@@ -1,4 +1,4 @@
-## Udacity Front-End Testing Project
+## Feed reader testing
 
 ## Overview
 
@@ -19,16 +19,16 @@ https://prabakar25.github.io/feedreadertesting/
 ##  Included Tests
 
 RSS Feeds
-	-are defined
-	-all urls are defined
-	-all names are defined
+*are defined
+*all urls are defined
+*all names are defined
 The menu
-	-should be hidden on load
-	-toggles on click
+*should be hidden on load
+*toggles on click
 Initial Entries
-	-entries are there
-	-New Feed Selection
-	-feed content changes
+*entries are there
+*New Feed Selection
+*feed content changes
 
 All the included tests will be appeared at the bottom of the page either flagged with green colour if all the test cases are true or it will be red if any failure in test cases.
 

@@ -12,10 +12,6 @@ https://github.com/prabakar25/Feedreader-testing-udacity/
 
 Open the *index.html* file to view the webpage.
 
-Alternatively you can view the live version of the project in the following link
-
-https://prabakar25.github.io/feedreadertesting/
-
 ##  Included Tests
 
 RSS Feeds
